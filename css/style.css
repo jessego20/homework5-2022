@@ -1,36 +1,43 @@
 /* step 1 */
 @keyframes logo-animation {
+    /* setting up the animatin for the logo */
    from {width: 25px; opacity: 0;}
    to {width: 475px; opacity: 1;}
 }
 
 #logo {
+    /* setting the logo id to use the animation above and 5 second duration */
     animation-name: logo-animation;
     animation-duration: 5s;
 }
 /* step 2 */
 body {
+    /* setting fonts and background for the body*/
     font-family: "Poppins", serif;
     background-image: url(../images/concrete_seamless.png);
     background-color: #f1f1f1;
 }
 /* step 3 */
 header {
+    /* in mobile view, set the header's flex box to be vertical and center the items */
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 /* step 4 */
 .nav_links {
+    /* vertical flex box makes the nav links be stakced on top of each other */
     display: flex;
     flex-direction: column;
 }
 /* step 5 */
 a:visited {
+    /* don't want the color of the links to change when clicked on */
     color: #0000ff;
 }
 /* step 6 */
 .card > header {
+    /* styling the headers in the card class with border and padding */
     background: #288088;
     border: 2px solid #45ADAD;
     padding: 20px 0px 20px 0px;
@@ -39,95 +46,115 @@ a:visited {
 }
 /* step 7 & 8*/
 .card {
+    /* content in the cards are displayed vertically default width is set to 450px */
     display: flex;
     flex-direction: column;
     flex-basis: 450px;
+    /* need to curve borders the same as the headers */
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
 }
 .pricing {
+    /* the card elements inside the pricing class should wrap when the screen isn't wide enough */
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 /* step 9 */
 .gallery img{
+    /* styling the gallery images with border, margin, and width */
     border: 10px solid #50C7C7;
     margin: 10px;
     width: 300px;
 }
 /* step 10 */
 .gallery {
+    /* gallery items should wrap when screen isn't wide enough */
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
+/* media query for new styling with screen width greater than 900px */
 @media screen and (min-width: 900px) {
     /* step 11 */
     header {
+        /* style header to have logo on the left and nav links on the right */
         display: flex;
         flex-direction: row;
         justify-content: space-between;
     }
     .nav_links {
+        /* style nav links to be displayed horizontally */
         display: flex;
         flex-direction: row;
     }
     /* step 12 */
     .card {
+        /* set default width for the cards */
         flex-basis: 275px;
     }
     .pricing {
+        /* vertically center the cards inside the pricing class */
         align-items: center;
     }
     /* step 13 */
     body > header {
+        /* make sure the header stays at the top of the page when scrolling */
         position: sticky;
         top: 0;
     }
 }
 
+/* media query for reduced motion option*/
 @media screen and (prefers-reduced-motion: reduce) {
     /* step 13 */
     #logo {
+        /* turn off animation */
         animation-name: none;
     }
 }
 
+/* media query for print format */
 @media print {
     /* step 15 & 16 */
     body {
+        /* style fonts and background */
         font-family: Arial, Helvetica;
         background-image: none;
     }
     /* step 17 */
     nav {
-        display: flex;
-        flex-direction: column;
+        /* stretch the nav container to span the whole screen */
         align-self: stretch;
     }
     .nav_links {
+        /* give space around each nav link */
         flex-direction: row;
         justify-content: space-around;
     }
     /* step 18 */
     .pricing {
+        /* card items should not wrap in the print view and be centered*/
         flex-wrap: nowrap;
         justify-content: center;
+        /* card items should be level at the bottom */
         align-items: flex-end;
     }
     /* step 19 */
     .card {
+        /* style cards with a border and have default width of 325px */
         border: 2px solid #45ADDD;
         flex-basis: 325px;
     }
     /* step 20 */
     #gallery, .gallery {
+        /* hiding the gallery and the id gallery*/
         display: none;
     }
     /* step 21 */
     .card > ul > li:nth-child(2)::after {
+        /* add thumbs up after the second list item in the cards */
         content: "👍"
     }
 }
